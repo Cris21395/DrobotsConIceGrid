@@ -1,0 +1,23 @@
+factory -t -e 1.1 @ Factory2.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+DB6335D3-FD3E-468B-AF73-A32D8D4A3255 -t -e 1.1 @ Factory2.FactoryAdapter
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+factory -t -e 1.1 @ Factory1.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+0E59ED7A-6BD2-4782-94D9-3DA63275324E -t -e 1.1 @ Factory1.FactoryAdapter
+factory -t -e 1.1 @ Factory2.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+9198FD34-B04E-49D7-9CF5-E3D17ECE35D6 -t -e 1.1 @ Factory2.FactoryAdapter
+factory -t -e 1.1 @ Factory1.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+2949BB7A-A3A3-452B-B6C2-2DD3267D35CF -t -e 1.1 @ Factory1.FactoryAdapter
+factory -t -e 1.1 @ Factory1.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+9AD4938D-13CA-4D71-8EF3-CB6AC2239793 -t -e 1.1 @ Factory1.FactoryAdapter
+factory -t -e 1.1 @ Factory2.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+C44995F5-1246-43D8-BA33-CDA64F49179A -t -e 1.1 @ Factory2.FactoryAdapter

@@ -1,0 +1,13 @@
+# Configuration file (02/17/17 14:14:45.208)
+
+# Server configuration
+Ice.Admin.ServerId=DrobotsApp.IcePatch2
+Ice.Admin.Endpoints=tcp -h localhost
+Ice.ProgramName=DrobotsApp.IcePatch2
+# Object adapter IcePatch2
+IcePatch2.Endpoints=default
+IcePatch2.AdapterId=DrobotsApp.IcePatch2.IcePatch2
+# Server descriptor properties
+IcePatch2.InstanceName=DrobotsApp.IcePatch2
+IcePatch2.Directory=/home/cristian/git/DrobotsConIceGrid/DrobotsConIceGrid/code
+Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

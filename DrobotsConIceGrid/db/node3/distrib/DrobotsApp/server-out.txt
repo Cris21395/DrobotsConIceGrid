@@ -1,0 +1,61 @@
+factory -t -e 1.1 @ Factory4.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+981E3E22-3EFE-4519-A89A-9ACD958F3263 -t -e 1.1 @ Factory4.FactoryAdapter
+Moving to x: 236 y: 168 α: 215º
+Moving to x: 236 y: 168 α: 215º
+Moving to x: 217 y: 154 α: 215º
+Moving to x: 197 y: 140 α: 215º
+factory -t -e 1.1 @ Factory3.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+FB0B33B1-EEA6-47CB-A28F-7D508853325C -t -e 1.1 @ Factory3.FactoryAdapter
+Moving to x: 283 y: 218 α: 217º
+Moving to x: 282 y: 218 α: 217º
+Moving to x: 262 y: 203 α: 217º
+Moving to x: 243 y: 189 α: 218º
+factory -t -e 1.1 @ Factory4.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+0345A8BB-23DF-4CCA-AE14-5625A425B5E5 -t -e 1.1 @ Factory4.FactoryAdapter
+Moving to x: 102 y: 335 α: 254º
+Moving to x: 101 y: 334 α: 254º
+factory -t -e 1.1 @ Factory3.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+2303E906-671F-4426-BBDB-9E6BADA2B5DE -t -e 1.1 @ Factory3.FactoryAdapter
+Moving to x: 75 y: 231 α: 254º
+Moving to x: 75 y: 230 α: 254º
+Moving to x: 76 y: 230 α: 253º
+Moving to x: 76 y: 231 α: 253º
+Moving to x: 77 y: 232 α: 253º
+Moving to x: 78 y: 232 α: 253º
+Moving to x: 79 y: 233 α: 253º
+Moving to x: 79 y: 234 α: 253º
+Moving to x: 80 y: 235 α: 253º
+Moving to x: 81 y: 235 α: 252º
+Moving to x: 81 y: 236 α: 253º
+Moving to x: 82 y: 237 α: 252º
+factory -t -e 1.1 @ Factory4.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+8766BE8A-E9FB-44ED-B7D0-7D45217E97A8 -t -e 1.1 @ Factory4.FactoryAdapter
+Moving to x: 360 y: 42 α: 185º
+Moving to x: 360 y: 41 α: 185º
+Moving to x: 360 y: 42 α: 185º
+Moving to x: 359 y: 42 α: 185º
+Moving to x: 358 y: 43 α: 185º
+Moving to x: 357 y: 44 α: 186º
+Moving to x: 357 y: 44 α: 186º
+Moving to x: 356 y: 45 α: 186º
+Moving to x: 355 y: 46 α: 186º
+Moving to x: 355 y: 47 α: 186º
+Moving to x: 354 y: 47 α: 186º
+Moving to x: 353 y: 48 α: 186º
+Moving to x: 353 y: 49 α: 186º
+Moving to x: 352 y: 49 α: 187º
+Moving to x: 351 y: 50 α: 187º
+Moving to x: 350 y: 51 α: 187º
+Moving to x: 350 y: 52 α: 187º
+Moving to x: 349 y: 52 α: 187º
+Moving to x: 348 y: 53 α: 187º
+factory -t -e 1.1 @ Factory3.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+8A49752F-C053-4E05-8CC8-E3A785FF97A1 -t -e 1.1 @ Factory3.FactoryAdapter
+Moving to x: 370 y: 283 α: 217º
+Moving to x: 370 y: 283 α: 217º

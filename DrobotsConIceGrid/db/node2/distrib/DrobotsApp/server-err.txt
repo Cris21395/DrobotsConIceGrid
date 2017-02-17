@@ -1,0 +1,15 @@
+2017-02-16 17:05:53.531504 Factory1: warning: dispatch exception: src/Util.cpp:441: Ice::UnknownLocalException:
+unknown local exception:
+Traceback (most recent call last):
+  File "/home/cristian/Escritorio/CristianGomezPedroGomez/db/node2/distrib/DrobotsApp/RobotControllerDefender.py", line 35, in turn
+    self.handlers[self.state]()
+  File "/home/cristian/Escritorio/CristianGomezPedroGomez/db/node2/distrib/DrobotsApp/RobotControllerDefender.py", line 43, in play
+    attacker_prx = self.container.getElementAt(i)
+  File "servicies.ice", line 856, in getElementAt
+ConnectionRefusedException: Ice.ConnectionRefusedException:
+Connection refused
+
+identity: 2949BB7A-A3A3-452B-B6C2-2DD3267D35CF
+facet: 
+operation: turn
+remote host: ::ffff:172.20.48.102 remote port: 34805
