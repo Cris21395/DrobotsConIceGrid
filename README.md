@@ -22,6 +22,11 @@ En DROBOTS, el juego trata de respetar siempre que sea posible las reglas y func
 
 # 2. Ejecución
 Para probar la ejecución de este pequeño proyecto, necesitaremos conectar nuestra vpn a la red de la UCLM además de abrir un
-terminal donde escribiremos el siguiente comando: make all. Con este comando se ejecutarán todos los programas necesarios para
-que la aplicación funcione correctamente. Es importante resaltar, que si la aplicación no funciona, se debe a que el servidor
-de la unviersidad(UCLM) ha sido modificado para la realización de otra práctica diferente a ésta.
+terminal donde escribiremos el siguiente comando: make ice-grid. Con este comando se abrirá la herramienta icegridgui, un entorno 
+donde ejecutaremos la aplicacin Drobots. Para ello, daremos clic en "log into an IceGrid Registry". Acto seguido, se abrirá una 
+ventana para conectarnos al endpoint del registro icegrid. Pulsamos en connect y se abrirá la venta de "Live Deployment". Una vez 
+estemos en la ventana, pulsamos la pestaña (+) de cada nodo para ejecutarlos. Dejamos para el final los players, por lo tanto, nos 
+dirigimos a cualquiera que no sean los citados anteriormente y pulsamos botón derecho y ejecutar. Cuando queden por ejecutar player 
+y player2, los ejecutamos y, acto seguido, botón derecho y abrimos la salida estándar para ver que está ocurriendo.
+Es importante resaltar, que si la aplicación no funciona, se debe a que el servidor de la unviersidad (UCLM) ha sido modificado 
+para la realización de otra práctica diferente a ésta.
