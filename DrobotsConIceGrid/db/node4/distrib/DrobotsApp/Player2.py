@@ -16,7 +16,6 @@ class PlayerApp(Ice.Application):
         adapter.activate()
 
         player_servant = PlayerI(broker, adapter)
-        #proxy_player = adapter.add(player_servant, broker.stringToIdentity('player'))
         proxy_player = adapter.addWithUUID(player_servant)
         print ('Proxy player: ' +str(proxy_player))
         direct_player = adapter.createDirectProxy(proxy_player.ice_getIdentity())
@@ -31,13 +30,13 @@ class PlayerApp(Ice.Application):
             game.login(player, 'Pedro' + str(random.randint(0,99)))
             print ('We are waiting to receive the robot controllers')
         except drobots.GameInProgress:
-            print '\033[91m\033[1m' + "\nGame in progress. Try it again" + '\033[0m'
+            print "\nGame in progress. Try it again"
             return 1
         except drobots.InvalidProxy:
-            print '\033[91m\033[1m' + "\nInvalid proxy" + '\033[0m'
+            print "\nInvalid proxy"
             return 2
         except drobots.InvalidName, e:
-            print '\033[91m\033[1m' + "\nInvalid name. It is possible that other person be using your name" + '\033[0m'
+            print "\nInvalid name. It is possible that other person be using your name"
             print str(e.reason)
             return 3            
         
@@ -66,15 +65,15 @@ class PlayerI(drobots.Player):
         return rc             
     
     def win(self, current=None): 
-        print '\033[93m\033[1m' + "We have won!" + '\033[0m'
+        print "We have won!"
         current.adapter.getCommunicator().shutdown()
 
     def lose(self, current=None):
-        print '\033[91m\033[1m' + "We have lost!" + '\033[0m'
+        print "We have lost!"
         current.adapter.getCommunicator().shutdown()
 
     def gameAbort(self, current=None):
-        print '\033[91m\033[1m' + 'Game aborted. Exiting' + '\033[0m'
+        print "Game aborted. Exiting"
         current.adapter.getCommunicator().shutdown()
 
     def createContainerControllers(self):

@@ -14,8 +14,8 @@ class RobotControllerAttackerI(drobots.RobotControllerAttacker):
         self.container = container
         self.state = State.MOVING
         self.previous_damage = 0
-        self.x = 10
-        self.y = 10
+        self.x = random.randint(0, 360)
+        self.y = random.randint(0, 360)
         self.shoot_angle = 0
         self.shoots_counter = 0
         self.friends_position = dict()

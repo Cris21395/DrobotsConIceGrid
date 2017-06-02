@@ -15,8 +15,8 @@ class RobotControllerDefenderI(drobots.RobotControllerDefender):
         self.state = State.MOVING
         self.previous_damage = 0
         self.friends_position = dict()
-        self.x = 390
-        self.y = 390
+        self.x = random.randint(0, 360)
+        self.y = random.randint(0, 360)
         self.Allangles = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340]
         self.angles_left_to_scan = self.Allangles[:]
         random.shuffle(self.angles_left_to_scan)
