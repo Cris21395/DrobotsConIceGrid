@@ -59,3 +59,13 @@ factory -t -e 1.1 @ Factory3.FactoryAdapter
 8A49752F-C053-4E05-8CC8-E3A785FF97A1 -t -e 1.1 @ Factory3.FactoryAdapter
 Moving to x: 370 y: 283 α: 217º
 Moving to x: 370 y: 283 α: 217º
+factory -t -e 1.1 @ Factory3.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+99512EDD-FE89-4750-B8B2-6F4CC1BD1037 -t -e 1.1 @ Factory3.FactoryAdapter
+Moving to x: 272 y: 202 α: 216º
+Moving to x: 272 y: 202 α: 216º
+factory -t -e 1.1 @ Factory4.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+E694E172-0469-40C1-A2A3-6B052B1F9030 -t -e 1.1 @ Factory4.FactoryAdapter
+Moving to x: 354 y: 222 α: 212º
+Moving to x: 354 y: 222 α: 212º

@@ -25,3 +25,12 @@ ContainerController: link: 0 -> 9AD4938D-13CA-4D71-8EF3-CB6AC2239793 -t -e 1.1:t
 ContainerController: link: 1 -> C44995F5-1246-43D8-BA33-CDA64F49179A -t -e 1.1:tcp -h 192.168.1.102 -p 9091 -t 60000:tcp -h 161.67.172.112 -p 9091 -t 60000
 ContainerController: link: 2 -> 8A49752F-C053-4E05-8CC8-E3A785FF97A1 -t -e 1.1:tcp -h 192.168.1.102 -p 9092 -t 60000:tcp -h 161.67.172.112 -p 9092 -t 60000
 ContainerController: link: 3 -> 8766BE8A-E9FB-44ED-B7D0-7D45217E97A8 -t -e 1.1:tcp -h 192.168.1.102 -p 9093 -t 60000:tcp -h 161.67.172.112 -p 9093 -t 60000
+container -t -e 1.1 @ Container.ContainerAdapter
+ContainerFactories: link: 0 -> factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
+ContainerFactories: link: 1 -> factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
+ContainerFactories: link: 2 -> factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
+ContainerFactories: link: 3 -> factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000
+ContainerController: link: 0 -> FD9653EB-C231-4A62-AC81-351475F81045 -t -e 1.1:tcp -h 192.168.1.33 -p 9090 -t 60000:tcp -h 161.67.172.86 -p 9090 -t 60000
+ContainerController: link: 1 -> 38DFE5E9-612A-49D6-94EE-E45C8631903E -t -e 1.1:tcp -h 192.168.1.33 -p 9091 -t 60000:tcp -h 161.67.172.86 -p 9091 -t 60000
+ContainerController: link: 2 -> 99512EDD-FE89-4750-B8B2-6F4CC1BD1037 -t -e 1.1:tcp -h 192.168.1.33 -p 9092 -t 60000:tcp -h 161.67.172.86 -p 9092 -t 60000
+ContainerController: link: 3 -> E694E172-0469-40C1-A2A3-6B052B1F9030 -t -e 1.1:tcp -h 192.168.1.33 -p 9093 -t 60000:tcp -h 161.67.172.86 -p 9093 -t 60000

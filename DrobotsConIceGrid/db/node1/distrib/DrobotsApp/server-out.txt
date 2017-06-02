@@ -190,3 +190,33 @@ Moving to x: 100 y: 23 α: 188º
 Moving to x: 99 y: 24 α: 189º
 Moving to x: 100 y: 25 α: 189º
 Moving to x: 99 y: 26 α: 190º
+[92m[1m******** CREATING FACTORIES ********[0m
+factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
+factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
+factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
+factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000
+Proxy player: A0493A21-FECC-448A-AEB5-D2FEFB4C9052 -t -e 1.1 @ Player.PlayerAdapter
+Proxy game: drobots7 -t -e 1.1
+We try to do login...
+We are waiting to receive the robot controllers
+Proxy player: 778C6644-2CE5-41C3-B7D5-5F7CEDDF9059 -t -e 1.1 @ Player2.PlayerAdapter
+Proxy game: drobots7 -t -e 1.1
+We try to do login...
+We are waiting to receive the robot controllers
+Making a robot controller...
+Making a robot controller...
+Making a robot controller...
+Making a robot controller...
+[92m[1m******** CREATING CONTROLLERS ********[0m
+Making a robot controller at the factory 0
+factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
+Making a robot controller at the factory 1
+factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
+Making a robot controller at the factory 2
+factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
+Making a robot controller at the factory 3
+factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000
+Moving to x: 111 y: 318 α: 252º
+Moving to x: 266 y: 231 α: 221º
+Moving to x: 111 y: 317 α: 252º
+Moving to x: 266 y: 231 α: 221º

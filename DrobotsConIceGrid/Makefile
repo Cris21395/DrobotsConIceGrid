@@ -35,10 +35,6 @@ all:
 	make dir
 	make start-grid
 	make ice
-
-ice-grid:
-	make dir
-	make start-grid
 	make patch2calc
 	icegridgui &
 

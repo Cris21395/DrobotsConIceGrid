@@ -21,3 +21,9 @@ factory -t -e 1.1 @ Factory1.FactoryAdapter
 factory -t -e 1.1 @ Factory2.FactoryAdapter
 [92m[1m******** MAKING FACTORY ********[0m
 C44995F5-1246-43D8-BA33-CDA64F49179A -t -e 1.1 @ Factory2.FactoryAdapter
+factory -t -e 1.1 @ Factory2.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+38DFE5E9-612A-49D6-94EE-E45C8631903E -t -e 1.1 @ Factory2.FactoryAdapter
+factory -t -e 1.1 @ Factory1.FactoryAdapter
+[92m[1m******** MAKING FACTORY ********[0m
+FD9653EB-C231-4A62-AC81-351475F81045 -t -e 1.1 @ Factory1.FactoryAdapter
