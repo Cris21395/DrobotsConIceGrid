@@ -26,9 +26,9 @@ class PlayerApp(Ice.Application):
         game = drobots.GamePrx.checkedCast(proxy_game)
 
         try:
-            print ('We try to do login...')
+            print ('Trying to do login...')
             game.login(player, 'Pedro' + str(random.randint(0,99)))
-            print ('We are waiting to receive the robot controllers')
+            print ('Waiting to receive the robot controllers')
         except drobots.GameInProgress:
             print "\nGame in progress. Try it again"
             return 1

@@ -12,7 +12,7 @@ class FactoryI(drobots.Factory):
         pass
 
     def make(self, robot, container_robots, key, current=None):
-        print '\033[92m\033[1m' + '******** MAKING FACTORY ********' + '\033[0m'       
+        print "******** MAKING FACTORY ********"     
 
         if robot.ice_isA("::drobots::Attacker"):
             rc_servant = RobotControllerAttackerI(robot, container_robots)

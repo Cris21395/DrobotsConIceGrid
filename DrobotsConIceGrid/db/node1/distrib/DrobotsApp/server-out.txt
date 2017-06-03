@@ -1,0 +1,26 @@
+******** CREATING FACTORIES ********
+factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
+factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
+factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
+factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000
+Proxy player: 7E7E5B3D-E258-4F57-AC31-82ECED35DD58 -t -e 1.1 @ Player.PlayerAdapter
+Proxy game: drobots7 -t -e 1.1
+Trying to do login...
+Waiting to receive the robot controllers
+Proxy player: 54A3CE9F-23C7-4917-AA5C-07835C32DD5F -t -e 1.1 @ Player2.PlayerAdapter
+Proxy game: drobots7 -t -e 1.1
+Trying to do login...
+Waiting to receive the robot controllers
+Making a robot controller...
+Making a robot controller...
+Making a robot controller...
+Making a robot controller...
+******** CREATING CONTROLLERS ********
+Making a robot controller at the factory 0
+factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
+Making a robot controller at the factory 1
+factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
+Making a robot controller at the factory 2
+factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
+Making a robot controller at the factory 3
+factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000

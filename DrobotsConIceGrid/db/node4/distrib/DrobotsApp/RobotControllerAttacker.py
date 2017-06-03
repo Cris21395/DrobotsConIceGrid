@@ -70,7 +70,7 @@ class RobotControllerAttackerI(drobots.RobotControllerAttacker):
             self.robot.drive(135, 100)
             self.velocidad = 100
 
-        print ('Moving to x: ' + str(location.x) + ' y: ' + str(location.y) + ' α: ' + str(angle) + 'º')
+        '''print ('Moving to x: ' + str(location.x) + ' y: ' + str(location.y) + ' α: ' + str(angle) + 'º')'''
         self.robot.drive(angle, 100)
         self.state = State.PLAYING
 
