@@ -53,7 +53,9 @@ stop-grid:
 show-nodes:
 	$(IG_ADMIN) -e "node list"
 
-clean: stop-grid
+clean: 
+	make stop-grid
 	$(RM) code/*.bz2
 	$(RM) code/*.sum
+	@sleep 2; #get round to removing all nodes
 	sudo rm -r db/

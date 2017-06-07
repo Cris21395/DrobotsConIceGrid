@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import Ice
-Ice.loadSlice('servicies.ice --all -I .')
+Ice.loadSlice('services.ice --all -I .')
 import drobots
 import sys, time, random
 from RobotControllerAttacker import *
@@ -23,7 +23,8 @@ class PlayerApp(Ice.Application):
 
         proxy_game = broker.propertyToProxy('Player') 
         print ('Proxy game: ' +str(proxy_game))
-        game = drobots.GamePrx.checkedCast(proxy_game)
+        gameFact = drobots.GameFactoryPrx.checkedCast(proxy_game)
+        game = gameFact.makeGame("GameRobots", 2)
 
         try:
             print ('Trying to do login...')

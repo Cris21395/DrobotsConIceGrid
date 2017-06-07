@@ -1,4 +1,4 @@
-# Configuration file (06/03/17 02:38:16.696)
+# Configuration file (06/07/17 11:41:23.439)
 
 # Server configuration
 Ice.Admin.ServerId=Player
@@ -9,7 +9,7 @@ PlayerAdapter.Endpoints=tcp
 PlayerAdapter.AdapterId=Player.PlayerAdapter
 # Server descriptor properties
 Player.Locator=IceGrid/Locator -t:tcp -h atclab.esi.uclm.es -p 4061
-Player=drobots7
+Player=factory
 Ice.StdOut=/home/cristian/git/DrobotsConIceGrid/DrobotsConIceGrid/db/node1/distrib/DrobotsApp/server-out.txt
 Ice.StdErr=/home/cristian/git/DrobotsConIceGrid/DrobotsConIceGrid/db/node1/distrib/DrobotsApp/server-err.txt
 Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

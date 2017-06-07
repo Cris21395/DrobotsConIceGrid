@@ -1,0 +1,36 @@
+2017-06-07 11:41:39.707820 Player: error: Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/Ice.py", line 1216, in doMain
+    status = self.run(args)
+  File "./Player.py", line 24, in run
+    gameFact = drobots.GameFactoryPrx.checkedCast(proxy_game)
+  File "services.ice", line 834, in checkedCast
+DNSException: exception ::Ice::DNSException
+{
+    error = -2
+    host = atclab.esi.uclm.es
+}
+
+2017-06-07 11:42:04.515216 Player: error: Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/Ice.py", line 1216, in doMain
+    status = self.run(args)
+  File "./Player.py", line 29, in run
+    game.login(player, 'Cris' + str(random.randint(0,99)))
+  File "services.ice", line 763, in login
+NotRegisteredException: exception ::Ice::NotRegisteredException
+{
+    kindOfObject = object
+    id = GameRobots
+}
+
+2017-06-07 11:42:05.761274 Player2: error: Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/Ice.py", line 1216, in doMain
+    status = self.run(args)
+  File "./Player2.py", line 31, in run
+    game.login(player, 'Pedro' + str(random.randint(0,99)))
+  File "services.ice", line 763, in login
+NotRegisteredException: exception ::Ice::NotRegisteredException
+{
+    kindOfObject = object
+    id = GameRobots
+}
+
