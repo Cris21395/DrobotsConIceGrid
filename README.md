@@ -1,7 +1,6 @@
 # Drobots
 
 # 1. Introducción
-
 CROBOTS es un juego basado en programación de computadores. A diferencia de los juegos tipo arcade que requiere interacción con un
 humano para controlar algún objeto, toda la estrategia en CROBOTS está especificada antes del comienzo del juego. La estrategia
 del juego está condensada en un programa C que tú diseñas y escribes. Tu programa controla un robot cuya misión es buscar,
@@ -30,3 +29,7 @@ dirigimos a cualquiera que no sean los citados anteriormente y pulsamos botón d
 y player2, los ejecutamos y, acto seguido, botón derecho y abrimos la salida estándar para ver que está ocurriendo.
 Es importante resaltar, que si la aplicación no funciona, se debe a que el servidor de la unviersidad (UCLM) ha sido modificado 
 para la realización de otra práctica diferente a ésta.
+
+# 3. Descarga
+Este repositorio puede ser descargado usando el siguiente comando: git clone https://github.com/Cris21395/DrobotsConIceGrid.git
+El repositorio se almacenará en el directorio donde ejecutemos el comando.
