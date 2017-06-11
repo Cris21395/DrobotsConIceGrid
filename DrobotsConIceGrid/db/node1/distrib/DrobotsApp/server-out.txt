@@ -3,16 +3,241 @@ factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
 factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
 factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
 factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000
-Proxy player: A896FC20-6444-40A3-B830-767EAFEF0D7D -t -e 1.1 @ Player.PlayerAdapter
-Proxy game: factory -t -e 1.1
-******** CREATING FACTORIES ********
+Proxy player: C9F47012-DDAC-4F0D-A56B-5B40C47EE8F1 -t -e 1.1 @ Player.PlayerAdapter
+Proxy game: drobots7 -t -e 1.1
+Trying to do login...
+Waiting to receive the robot controllers
+Proxy player: 3CC1BD93-0FEE-42B5-8615-8E9E1862E8F7 -t -e 1.1 @ Player2.PlayerAdapter
+Proxy game: drobots7 -t -e 1.1
+Trying to do login...
+Waiting to receive the robot controllers
+Making a robot controller...
+Making a robot controller...
+Making a robot controller...
+Making a robot controller...
+******** CREATING CONTROLLERS ********
+Making a robot controller at the factory 0
 factory -t -e 1.1:tcp -h localhost -p 9090 -t 60000
+Making a robot controller at the factory 1
 factory -t -e 1.1:tcp -h localhost -p 9091 -t 60000
+Making a robot controller at the factory 2
 factory -t -e 1.1:tcp -h localhost -p 9092 -t 60000
+Making a robot controller at the factory 3
 factory -t -e 1.1:tcp -h localhost -p 9093 -t 60000
-Proxy player: 4792D807-3ED2-432F-B182-3EAFBF710D86 -t -e 1.1 @ Player.PlayerAdapter
-Proxy game: factory -t -e 1.1
-Trying to do login...
-Proxy player: DB552D3F-F3C3-4C00-8222-B9C4B5048D8C -t -e 1.1 @ Player2.PlayerAdapter
-Proxy game: factory -t -e 1.1
-Trying to do login...
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Destroyed atacant
+Destroyed defender
+Destroyed defender
+Des

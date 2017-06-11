@@ -10,10 +10,15 @@ class PlayerApp(Ice.Application):
     def run(self, argv):
 
         broker = self.communicator()
+
+        #well-known object
+        container_proxy = broker.stringToProxy('container')
+        container = drobots.ContainerPrx.checkedCast(container_proxy)
+
         adapter = broker.createObjectAdapter('PlayerAdapter')
         adapter.activate()
 
-        player_servant = PlayerI(broker, adapter)
+        player_servant = PlayerI(broker, adapter, container)
         proxy_player = adapter.addWithUUID(player_servant)
         print ('Proxy player: ' +str(proxy_player))
         direct_player = adapter.createDirectProxy(proxy_player.ice_getIdentity())
@@ -21,9 +26,10 @@ class PlayerApp(Ice.Application):
 
         proxy_game = broker.propertyToProxy('Player') 
         print ('Proxy game: ' +str(proxy_game))
-        gameFact = drobots.GameFactoryPrx.checkedCast(proxy_game)
-        game = gameFact.makeGame("GameRobots", 2)
-
+        game = drobots.GamePrx.checkedCast(proxy_game)
+        #gameFact = drobots.GameFactoryPrx.checkedCast(proxy_game)
+        #game = gameFact.makeGame("GameRobots", 2)
+        
         try:
             print ('Trying to do login...')
             game.login(player, 'Cris' + str(random.randint(0,99)))
@@ -45,17 +51,16 @@ class PlayerApp(Ice.Application):
         return 0
 
 class PlayerI(drobots.Player):
-    def __init__(self, broker, adapter):
+    def __init__(self, broker, adapter, container):
         self.broker = broker
-        self.adapter = adapter    
+        self.adapter = adapter
+        self.container = container    
         self.counter = 0
         self.container_factories = self.createContainerFactories()
         self.container_robots = self.createContainerControllers()
 
     def createContainerFactories(self, current=None):
-        string_prx = 'container -t -e 1.1:tcp -h localhost -p 9190 -t 60000'
-        container_proxy = self.broker.stringToProxy(string_prx)
-        factories_container = drobots.ContainerPrx.checkedCast(container_proxy)
+        factories_container = self.container
         factories_container.setType("ContainerFactories")
 
         print "******** CREATING FACTORIES ********"
@@ -72,6 +77,15 @@ class PlayerI(drobots.Player):
         
         sys.stdout.flush()
         return factories_container
+
+    def createContainerControllers(self):
+        controller_container = self.container
+        controller_container.setType("ContainerController")
+
+        if not controller_container:
+            raise RuntimeError('Invalid factory proxy')
+        
+        return controller_container
 
     def makeController(self, robot, current=None): 
         if self.counter == 0 :
@@ -98,16 +112,6 @@ class PlayerI(drobots.Player):
     def gameAbort(self, current=None):
         print "Game aborted. Exiting"
         current.adapter.getCommunicator().shutdown()
-
-    def createContainerControllers(self):
-        container_proxy = self.broker.stringToProxy('container -t -e 1.1:tcp -h localhost -p 9190 -t 60000')
-        controller_container = drobots.ContainerPrx.checkedCast(container_proxy)
-        controller_container.setType("ContainerController")
-
-        if not controller_container:
-            raise RuntimeError('Invalid factory proxy')
-        
-        return controller_container
 
 if __name__ == '__main__':
 	sys.exit(PlayerApp().main(sys.argv))
