@@ -21,7 +21,11 @@ En DROBOTS, el juego trata de respetar siempre que sea posible las reglas y func
 
 # 2. Ejecución
 Para probar la ejecución de este pequeño proyecto, necesitaremos conectar nuestra vpn a la red de la UCLM además de abrir un
-terminal donde escribiremos el siguiente comando: make ice-grid. Con este comando se abrirá la herramienta icegridgui, un entorno 
+terminal donde escribiremos el siguiente comando:
+```
+make all
+```
+Con este comando se abrirá la herramienta icegridgui, un entorno 
 donde ejecutaremos la aplicacin Drobots. Para ello, daremos clic en "log into an IceGrid Registry". Acto seguido, se abrirá una 
 ventana para conectarnos al endpoint del registro icegrid. Pulsamos en connect y se abrirá la venta de "Live Deployment". Una vez 
 estemos en la ventana, pulsamos la pestaña (+) de cada nodo para ejecutarlos. Dejamos para el final los players, por lo tanto, nos 
@@ -31,5 +35,8 @@ Es importante resaltar, que si la aplicación no funciona, se debe a que el serv
 para la realización de otra práctica diferente a ésta.
 
 # 3. Descarga
-Este repositorio puede ser descargado usando el siguiente comando: git clone https://github.com/Cris21395/DrobotsConIceGrid.git
+Este repositorio puede ser descargado usando el siguiente comando:
+```
+git clone https://github.com/Cris21395/DrobotsConIceGrid.git
+```
 El repositorio se almacenará en el directorio donde ejecutemos el comando.
