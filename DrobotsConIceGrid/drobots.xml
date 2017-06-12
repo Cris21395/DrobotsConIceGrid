@@ -118,14 +118,18 @@
                <property name="Ice.StdOut" value="${application.distrib}/server-out.txt"/>
                <property name="Ice.StdErr" value="${application.distrib}/server-err.txt"/>
             </properties>
-            <adapter name="FactoryAdapter" endpoints="tcp -p 9090" id="${server}.FactoryAdapter"/>
+            <adapter name="FactoryAdapter" endpoints="tcp -p 9090" id="${server}.FactoryAdapter">
+               <object identity="factory1" type="::drobots::ControllerFactory" property="Identity"/>
+            </adapter>
          </server>
          <server id="Factory2" activation="manual" exe="./Factory.py" pwd="${application.distrib}">
             <properties>
                <property name="Ice.StdOut" value="${application.distrib}/server-out.txt"/>
                <property name="Ice.StdErr" value="${application.distrib}/server-err.txt"/>
             </properties>
-            <adapter name="FactoryAdapter" endpoints="tcp -p 9091" id="${server}.FactoryAdapter"/>
+            <adapter name="FactoryAdapter" endpoints="tcp -p 9091" id="${server}.FactoryAdapter">
+               <object identity="factory2" type="::drobots::ControllerFactory" property="Identity"/>
+            </adapter>
          </server>
       </node>
       <node name="node3">
@@ -134,14 +138,18 @@
                <property name="Ice.StdOut" value="${application.distrib}/server-out.txt"/>
                <property name="Ice.StdErr" value="${application.distrib}/server-err.txt"/>
             </properties>
-            <adapter name="FactoryAdapter" endpoints="tcp -p 9092" id="${server}.FactoryAdapter"/>
+            <adapter name="FactoryAdapter" endpoints="tcp -p 9092" id="${server}.FactoryAdapter">
+               <object identity="factory3" type="::drobots::ControllerFactory" property="Identity"/>
+            </adapter>
          </server>
          <server id="Factory4" activation="manual" exe="./Factory.py" pwd="${application.distrib}">
             <properties>
                <property name="Ice.StdOut" value="${application.distrib}/server-out.txt"/>
                <property name="Ice.StdErr" value="${application.distrib}/server-err.txt"/>
             </properties>
-            <adapter name="FactoryAdapter" endpoints="tcp -p 9093" id="${server}.FactoryAdapter"/>
+            <adapter name="FactoryAdapter" endpoints="tcp -p 9093" id="${server}.FactoryAdapter">
+               <object identity="factory4" type="::drobots::ControllerFactory" property="Identity"/>
+            </adapter>
          </server>
       </node>
       <node name="node4">

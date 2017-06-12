@@ -1,20 +1,22 @@
 // -*- mode:c++ -*-
-#include "drobots.ice"
+#include <drobots.ice>
 
 module drobots {
 
-    dictionary<int, Object*> ObjectPrxDict;
+    dictionary<string, Object*> ObjectPrxDict;
     
     interface Container {
         void link(int key, Object* proxy);
+        void linkFactories(string key, Object* proxy);
         void unlink(int key);
         ObjectPrxDict list();
+        ObjectPrxDict listFactories();
         Object* getElementAt(int key);
         void setType(string type);
         string getType();
     };   
 
-    interface Factory {
+    interface ControllerFactory {
         drobots::RobotController* make(drobots::Robot* bot, Container* container, int key);
     };
 

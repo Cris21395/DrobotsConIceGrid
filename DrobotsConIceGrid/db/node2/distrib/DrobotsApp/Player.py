@@ -62,13 +62,14 @@ class PlayerI(drobots.Player):
     def createContainerFactories(self, current=None):
         factories_container = self.container
         factories_container.setType("ContainerFactories")
+        list = self.container.listFactories()
 
         print "******** CREATING FACTORIES ********"
         for i in range(0,4):
-            string_prx = 'factory -t -e 1.1:tcp -h localhost -p 909'+str(i)+' -t 60000'
-            factory_proxy = self.broker.stringToProxy(string_prx)
+            #well-known object
+            factory_proxy = list.values()[i]
             print factory_proxy
-            factory = drobots.FactoryPrx.checkedCast(factory_proxy)
+            factory = drobots.ControllerFactoryPrx.checkedCast(factory_proxy)
             
             if not  factory:
                 raise RuntimeError('Invalid factory '+i+' proxy')
@@ -95,7 +96,7 @@ class PlayerI(drobots.Player):
         print ('Making a robot controller at the factory ' + str(i))
         factory_proxy = self.container_factories.getElementAt(i)
         print factory_proxy
-        factory = drobots.FactoryPrx.checkedCast(factory_proxy)
+        factory = drobots.ControllerFactoryPrx.checkedCast(factory_proxy)
         rc = factory.make(robot, self.container_robots, self.counter)
         self.counter += 1
         sys.stdout.flush()

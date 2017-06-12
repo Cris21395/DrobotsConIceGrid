@@ -1,4 +1,4 @@
-# Configuration file (06/11/17 21:17:22.986)
+# Configuration file (06/12/17 10:52:10.455)
 
 # Server configuration
 Ice.Admin.ServerId=Factory2
@@ -8,6 +8,7 @@ Ice.ProgramName=Factory2
 FactoryAdapter.Endpoints=tcp -p 9091
 FactoryAdapter.AdapterId=Factory2.FactoryAdapter
 # Server descriptor properties
+Identity=factory2
 Ice.StdOut=/home/cristian/git/DrobotsConIceGrid/DrobotsConIceGrid/db/node2/distrib/DrobotsApp/server-out.txt
 Ice.StdErr=/home/cristian/git/DrobotsConIceGrid/DrobotsConIceGrid/db/node2/distrib/DrobotsApp/server-err.txt
 Ice.Default.Locator=IceGrid/Locator -t:tcp -h 127.0.0.1 -p 4061

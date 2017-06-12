@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import Ice
+import os
 Ice.loadSlice('services.ice --all -I .')
 import drobots, sys
 from RobotControllerAttacker import *
 from RobotControllerDefender import *
 
-class FactoryI(drobots.Factory):
+class FactoryI(drobots.ControllerFactory):
     def __init__(self):
         pass
 
@@ -36,9 +37,14 @@ class FactoryI(drobots.Factory):
 class ServerFactoryApp(Ice.Application):
     def run(self, argv):
         broker = self.communicator()
-        adapter = broker.createObjectAdapter("FactoryAdapter")
+        adapter = broker.createObjectAdapter('FactoryAdapter')
         servant = FactoryI()
-        proxy = adapter.add(servant, broker.stringToIdentity("factory"))        
+        proxy = adapter.add(servant, broker.stringToIdentity('factory'))
+
+        container_proxy = broker.stringToProxy('container')
+        container = drobots.ContainerPrx.checkedCast(container_proxy)
+
+        container.linkFactories("Factory"+"--"+str(os.getpid()), proxy)              
 
         print(proxy)
 

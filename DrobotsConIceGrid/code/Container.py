@@ -9,10 +9,15 @@ import sys
 class ContainerI(drobots.Container):
     def __init__(self, current=None):
         self.proxies = dict()
+        self.factories = dict()
 
     def link(self, key, proxy, current=None):
         print("{0}: link: {1} -> {2}".format(self.type, key, proxy))
         self.proxies[key] = proxy
+
+    def linkFactories(self, key, proxy, current=None):
+        print("link: {0} -> {1}".format(key, proxy))
+        self.factories[key] = proxy
 
     def unlink(self, key, current=None):
         print("{0}: unlink: {1}".format(self.type, key))
@@ -20,6 +25,9 @@ class ContainerI(drobots.Container):
         
     def list(self,current=None):
         return self.proxies
+
+    def listFactories(self, current=None):
+        return self.factories
 
     def getElementAt(self, key, current=None):
         return self.proxies[key]
