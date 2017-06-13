@@ -9,8 +9,6 @@ from RobotControllerAttacker import *
 from RobotControllerDefender import *
 
 class FactoryI(drobots.ControllerFactory):
-    def __init__(self):
-        pass
 
     def make(self, robot, container_robots, key, current=None):
         print "******** MAKING FACTORY ********"     
