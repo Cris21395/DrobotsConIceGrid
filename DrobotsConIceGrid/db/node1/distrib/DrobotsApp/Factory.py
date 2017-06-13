@@ -39,7 +39,7 @@ class ServerFactoryApp(Ice.Application):
         broker = self.communicator()
         adapter = broker.createObjectAdapter('FactoryAdapter')
         servant = FactoryI()
-        proxy = adapter.add(servant, broker.stringToIdentity('factory'))
+        proxy = adapter.addWithUUID(servant)
 
         container_proxy = broker.stringToProxy('container')
         container = drobots.ContainerPrx.checkedCast(container_proxy)

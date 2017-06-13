@@ -45,7 +45,10 @@ class PlayerApp(Ice.Application):
         except drobots.InvalidName, e:
             print "\nInvalid name. It is possible that other person be using your name"
             print str(e.reason)
-            return 3            
+            return 3
+        except drobots.BadNumberOfPlayers:
+            print "\nBad number of players"
+            return 4            
         
         sys.stdout.flush()
         self.shutdownOnInterrupt()

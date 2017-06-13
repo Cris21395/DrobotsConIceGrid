@@ -43,7 +43,10 @@ class PlayerApp(Ice.Application):
         except drobots.InvalidName, e:
             print "\nInvalid name. It is possible that other person be using your name"
             print str(e.reason)
-            return 3            
+            return 3
+        except drobots.BadNumberOfPlayers:
+            print "\nBad number of players"
+            return 4           
         
         sys.stdout.flush()
         self.shutdownOnInterrupt()
@@ -63,18 +66,18 @@ class PlayerI(drobots.Player):
         factories_container = self.container
         factories_container.setType("ContainerFactories")
         list = self.container.listFactories()
+        key = 0
 
         print "******** CREATING FACTORIES ********"
-        for i in range(0,4):
-            #well-known object
-            factory_proxy = list.values()[i]
+        for factory_proxy in list.values():
             print factory_proxy
             factory = drobots.ControllerFactoryPrx.checkedCast(factory_proxy)
             
             if not  factory:
-                raise RuntimeError('Invalid factory '+i+' proxy')
+                raise RuntimeError('Invalid factory '+key+' proxy')
         
-            factories_container.link(i, factory_proxy)
+            factories_container.link(key, factory_proxy)
+            key = key + 1
         
         sys.stdout.flush()
         return factories_container
