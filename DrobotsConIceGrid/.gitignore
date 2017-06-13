@@ -1,4 +1,4 @@
 *.pyc
 *.bz2
 *.txt
-code/*.sum
+*.sum
