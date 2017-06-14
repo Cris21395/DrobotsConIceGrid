@@ -70,9 +70,9 @@ class PlayerI(drobots.Player):
         self.rc_counter += 1
 
         if robot.ice_isA("::drobots::Attacker"):
-            rc_servant = RobotControllerAttackerI(robot, self.container_robots)
+            rc_servant = RobotControllerAttackerI(robot, self.container_robots, self.rc_counter)
         else:
-            rc_servant = RobotControllerDefenderI(robot, self.container_robots)
+            rc_servant = RobotControllerDefenderI(robot, self.container_robots, self.rc_counter)
  
         rc_proxy = self.adapter.add(rc_servant, self.broker.stringToIdentity(name))
 
@@ -82,11 +82,11 @@ class PlayerI(drobots.Player):
         return rc             
     
     def win(self, current=None): 
-        print "We have won!"
+        print "Player2 wins!"
         current.adapter.getCommunicator().shutdown()
 
     def lose(self, current=None):
-        print "We have lost!"
+        print "Player2 loses!"
         current.adapter.getCommunicator().shutdown()
 
     def gameAbort(self, current=None):

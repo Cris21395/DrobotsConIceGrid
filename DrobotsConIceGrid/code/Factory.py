@@ -15,7 +15,7 @@ class FactoryI(services.ControllerFactory):
         print "******** MAKING FACTORY ********"     
 
         if robot.ice_isA("::drobots::Attacker"):
-            rc_servant = RobotControllerAttackerI(robot, container_robots)
+            rc_servant = RobotControllerAttackerI(robot, container_robots, key)
             rc_proxy = current.adapter.addWithUUID(rc_servant)
             print rc_proxy                  
             rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())
@@ -23,7 +23,7 @@ class FactoryI(services.ControllerFactory):
             rc = services.RobotControllerAttackerPrx.uncheckedCast(rc_proxy)
 
         else:
-            rc_servant = RobotControllerDefenderI(robot, container_robots)
+            rc_servant = RobotControllerDefenderI(robot, container_robots, key)
             rc_proxy = current.adapter.addWithUUID(rc_servant)
             print rc_proxy
             rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())            
