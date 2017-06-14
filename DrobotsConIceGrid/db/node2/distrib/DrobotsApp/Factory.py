@@ -4,13 +4,12 @@
 import Ice
 import os
 Ice.loadSlice('services.ice --all -I .')
-import drobots, sys
+import services
+import sys
 from RobotControllerAttacker import *
 from RobotControllerDefender import *
 
-class FactoryI(drobots.ControllerFactory):
-    def __init__(self):
-        pass
+class FactoryI(services.ControllerFactory):
 
     def make(self, robot, container_robots, key, current=None):
         print "******** MAKING FACTORY ********"     
@@ -21,7 +20,7 @@ class FactoryI(drobots.ControllerFactory):
             print rc_proxy                  
             rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())
             container_robots.link(key, rc_proxy)
-            rc = drobots.RobotControllerAttackerPrx.uncheckedCast(rc_proxy)
+            rc = services.RobotControllerAttackerPrx.uncheckedCast(rc_proxy)
 
         else:
             rc_servant = RobotControllerDefenderI(robot, container_robots)
@@ -29,7 +28,7 @@ class FactoryI(drobots.ControllerFactory):
             print rc_proxy
             rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())            
             container_robots.link(key, rc_proxy)
-            rc = drobots.RobotControllerDefenderPrx.uncheckedCast(rc_proxy)
+            rc = services.RobotControllerDefenderPrx.uncheckedCast(rc_proxy)
 
         rc.setContainer(container_robots)    
         return rc
@@ -42,7 +41,7 @@ class ServerFactoryApp(Ice.Application):
         proxy = adapter.addWithUUID(servant)
 
         container_proxy = broker.stringToProxy('container')
-        container = drobots.ContainerPrx.checkedCast(container_proxy)
+        container = services.ContainerPrx.checkedCast(container_proxy)
 
         container.linkFactories("Factory"+"--"+str(os.getpid()), proxy)              
 

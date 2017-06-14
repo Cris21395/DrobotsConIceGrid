@@ -3,6 +3,7 @@
 
 import Ice
 Ice.loadSlice('services.ice --all -I .')
+import services
 import drobots
 import sys, time, random
 from RobotControllerAttacker import *
@@ -15,7 +16,7 @@ class PlayerApp(Ice.Application):
 
         #well-known object
         container_proxy = broker.stringToProxy('container')
-        container = drobots.ContainerPrx.checkedCast(container_proxy)
+        container = services.ContainerPrx.checkedCast(container_proxy)
 
         adapter = broker.createObjectAdapter('PlayerAdapter')
         adapter.activate()

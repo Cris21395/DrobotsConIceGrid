@@ -3,10 +3,10 @@
 
 import Ice
 Ice.loadSlice('services.ice --all -I .')
-import drobots
+import services
 import sys
 
-class ContainerI(drobots.Container):
+class ContainerI(services.Container):
     def __init__(self, current=None):
         self.proxies = dict()
         self.factories = dict()

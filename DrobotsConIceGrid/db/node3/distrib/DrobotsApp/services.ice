@@ -1,7 +1,7 @@
 // -*- mode:c++ -*-
 #include <drobots.ice>
 
-module drobots {
+module services {
 
     dictionary<string, Object*> ObjectPrxDict;
     

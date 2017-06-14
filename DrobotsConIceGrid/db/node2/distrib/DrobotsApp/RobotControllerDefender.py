@@ -3,11 +3,12 @@
 
 import Ice
 Ice.loadSlice('services.ice --all -I .')
+import services
 import drobots
 import sys, time, random, math
 from State import *
 
-class RobotControllerDefenderI(drobots.RobotControllerDefender):
+class RobotControllerDefenderI(services.RobotControllerDefender):
 
     def __init__(self, robot, container):
         self.robot = robot
@@ -41,7 +42,7 @@ class RobotControllerDefenderI(drobots.RobotControllerDefender):
 
         for i in range(2,4):
             attacker_prx = self.container.getElementAt(i)
-            attacker = drobots.RobotControllerAttackerPrx.uncheckedCast(attacker_prx)
+            attacker = services.RobotControllerAttackerPrx.uncheckedCast(attacker_prx)
             attacker.friendPosition(my_location, i)
 
 

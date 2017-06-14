@@ -3,6 +3,7 @@
 
 import Ice
 Ice.loadSlice('services.ice --all -I .')
+import services
 import drobots
 import sys, time, random
 
@@ -13,7 +14,7 @@ class PlayerApp(Ice.Application):
 
         #well-known object
         container_proxy = broker.stringToProxy('container')
-        container = drobots.ContainerPrx.checkedCast(container_proxy)
+        container = services.ContainerPrx.checkedCast(container_proxy)
 
         adapter = broker.createObjectAdapter('PlayerAdapter')
         adapter.activate()
@@ -71,7 +72,7 @@ class PlayerI(drobots.Player):
         print "******** CREATING FACTORIES ********"
         for factory_proxy in list.values():
             print factory_proxy
-            factory = drobots.ControllerFactoryPrx.checkedCast(factory_proxy)
+            factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
             
             if not  factory:
                 raise RuntimeError('Invalid factory '+key+' proxy')
@@ -99,7 +100,7 @@ class PlayerI(drobots.Player):
         print ('Making a robot controller at the factory ' + str(i))
         factory_proxy = self.container_factories.getElementAt(i)
         print factory_proxy
-        factory = drobots.ControllerFactoryPrx.checkedCast(factory_proxy)
+        factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
         rc = factory.make(robot, self.container_robots, self.counter)
         self.counter += 1
         sys.stdout.flush()
