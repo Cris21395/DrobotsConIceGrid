@@ -107,11 +107,11 @@ class PlayerI(drobots.Player):
         return rc        
     
     def win(self, current=None): 
-        print "Player wins!"
+        print "Player1 wins!"
         current.adapter.getCommunicator().shutdown()
 
     def lose(self, current=None):
-        print "Player loses!"
+        print "Player1 loses!"
         current.adapter.getCommunicator().shutdown()
 
     def gameAbort(self, current=None):
