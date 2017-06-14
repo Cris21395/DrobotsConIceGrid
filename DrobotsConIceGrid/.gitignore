@@ -2,3 +2,4 @@
 *.bz2
 *.txt
 *.sum
+/db
