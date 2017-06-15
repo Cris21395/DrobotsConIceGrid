@@ -20,7 +20,7 @@ class FactoryI(services.ControllerFactory):
             print rc_proxy                  
             rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())
             container_robots.link(key, rc_proxy)
-            rc = services.RobotControllerAttackerPrx.uncheckedCast(rc_proxy)
+            rc = services.RobotControllerAttackerPrx.checkedCast(rc_proxy)
 
         else:
             rc_servant = RobotControllerDefenderI(robot, container_robots, key)
@@ -28,7 +28,7 @@ class FactoryI(services.ControllerFactory):
             print rc_proxy
             rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())            
             container_robots.link(key, rc_proxy)
-            rc = services.RobotControllerDefenderPrx.uncheckedCast(rc_proxy)
+            rc = services.RobotControllerDefenderPrx.checkedCast(rc_proxy)
 
         rc.setContainer(container_robots)    
         return rc
