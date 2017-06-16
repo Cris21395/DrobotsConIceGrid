@@ -18,6 +18,7 @@ module services {
 
     interface ControllerFactory {
         drobots::RobotController* make(drobots::Robot* bot, Container* container, int key);
+        drobots::DetectorController* makeDetector();
     };
 
     interface RobotControllerAttacker extends drobots::RobotController{

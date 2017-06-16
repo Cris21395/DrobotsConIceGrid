@@ -34,7 +34,7 @@ class PlayerApp(Ice.Application):
         try:
             print ('Trying to do login...')
             game.login(player, 'Cris' + str(random.randint(0,99)))
-            print ('Waiting to receive the robot controllers')
+            print ('Waiting to receive both the robot controllers and the detector')
         except drobots.GameInProgress:
             print "\nGame in progress. Try it again"
             return 1
@@ -59,52 +59,44 @@ class PlayerI(drobots.Player):
         self.broker = broker
         self.adapter = adapter
         self.container = container    
-        self.counter = 0
-        self.container_factories = self.createContainerFactories()
-        self.container_robots = self.createContainerControllers()
+        self.robot = 0
+        self.factory = 1
+        self.detector = 0
 
-    def createContainerFactories(self, current=None):
-        factories_container = self.container
-        factories_container.setType("ContainerFactories")
-        list = self.container.listFactories()
-        key = 0
+    def makeDetectorController(self, current=None):
+        dc = None
+        if self.detector == 0:
+            print "******** CREATING DETECTOR ********"
+            self.container.setType("ContainerDetector")
 
-        print "******** CREATING FACTORIES ********"
-        for factory_proxy in list.values():
-            print factory_proxy
+
+            print ('Making a detector controller at the factory ' + str(self.factory))
+
+            factory_proxy = self.broker.stringToProxy("detector")
             factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
-            
-            if not  factory:
-                raise RuntimeError('Invalid factory '+key+' proxy')
-        
-            factories_container.link(key, factory_proxy)
-            key = key + 1
-        
+            dc = factory.makeDetector()
+            print("{0}: link: {1} -> {2}".format(self.factory, factory_proxy, dc))
+        self.detector += 1
         sys.stdout.flush()
-        return factories_container
-
-    def createContainerControllers(self):
-        controller_container = self.container
-        controller_container.setType("ContainerController")
-
-        if not controller_container:
-            raise RuntimeError('Invalid factory proxy')
-        
-        return controller_container
+        return dc
 
     def makeController(self, robot, current=None): 
-        if self.counter == 0 :
+        if self.robot == 0 :
             print "******** CREATING CONTROLLERS ********"
+            self.container.setType("ContainerController")
 
-        i = self.counter % 4
-        print ('Making a robot controller at the factory ' + str(i))
-        factory_proxy = self.container_factories.getElementAt(i)
-        print factory_proxy
+        print ('Making a robot controller at the factory ' + str(self.factory))
+
+        factory_proxy = self.broker.stringToProxy("factory"+str(self.factory))
         factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
-        rc = factory.make(robot, self.container_robots, self.counter)
-        self.counter += 1
+        rc = factory.make(robot, self.container, self.robot)
+        print("{0}: link: {1} -> {2}".format(self.factory, factory_proxy, rc))
+        self.container.link(self.robot, rc)
+        self.robot += 1
+        self.factory += 1
+
         sys.stdout.flush()
-        return rc        
+        return rc   
     
     def win(self, current=None): 
         print "Player1 wins!"

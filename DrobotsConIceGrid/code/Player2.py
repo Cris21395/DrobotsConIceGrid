@@ -8,6 +8,7 @@ import drobots
 import sys, time, random
 from RobotControllerAttacker import *
 from RobotControllerDefender import *
+from DetectorController import *
 
 class PlayerApp(Ice.Application): 
     def run(self, argv):
@@ -36,7 +37,7 @@ class PlayerApp(Ice.Application):
         try:
             print ('Trying to do login...')
             game.login(player, 'Pedro' + str(random.randint(0,99)))
-            print ('Waiting to receive the robot controllers')
+            print ('Waiting to receive both the robot controllers and the detector')
         except drobots.GameInProgress:
             print "\nGame in progress. Try it again"
             return 1
@@ -62,7 +63,24 @@ class PlayerI(drobots.Player):
         self.adapter = adapter
         self.container = container    
         self.rc_counter = 0
-        self.container_robots = self.createContainerControllers()
+        self.rc_counter = 0
+        self.dc_counter = 0
+
+    def makeDetectorController(self, current=None):
+        dc = None
+        if self.dc_counter == 0:
+            print ('Making a controller detector...')
+            name = 'dc' + str(self.dc_counter)
+            dc_servant = DetectorControllerI()
+     
+            dc_proxy = self.adapter.add(dc_servant, self.broker.stringToIdentity(name))
+            print dc_proxy
+
+            dc_proxy = current.adapter.createDirectProxy(dc_proxy.ice_getIdentity())
+            dc = drobots.DetectorControllerPrx.checkedCast(dc_proxy)
+            self.dc_counter = self.dc_counter + 1
+        sys.stdout.flush()
+        return dc
 
     def makeController(self, robot, current=None): 
         print ('Making a robot controller...')
@@ -70,11 +88,12 @@ class PlayerI(drobots.Player):
         self.rc_counter += 1
 
         if robot.ice_isA("::drobots::Attacker"):
-            rc_servant = RobotControllerAttackerI(robot, self.container_robots, self.rc_counter)
+            rc_servant = RobotControllerAttackerI(robot, self.container, self.rc_counter)
         else:
-            rc_servant = RobotControllerDefenderI(robot, self.container_robots, self.rc_counter)
+            rc_servant = RobotControllerDefenderI(robot, self.container, self.rc_counter)
  
         rc_proxy = self.adapter.add(rc_servant, self.broker.stringToIdentity(name))
+        print rc_proxy
 
         rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())
         rc = drobots.RobotControllerPrx.checkedCast(rc_proxy)
@@ -92,15 +111,6 @@ class PlayerI(drobots.Player):
     def gameAbort(self, current=None):
         print "Game aborted. Exiting"
         current.adapter.getCommunicator().shutdown()
-
-    def createContainerControllers(self):
-        controller_container = self.container
-        controller_container.setType("ContainerController")
-
-        if not controller_container:
-            raise RuntimeError('Invalid factory proxy')
-        
-        return controller_container
 
 if __name__ == '__main__':
 	sys.exit(PlayerApp().main(sys.argv))
