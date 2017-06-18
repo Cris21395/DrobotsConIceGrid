@@ -3,12 +3,14 @@
 
 import Ice
 Ice.loadSlice('services.ice --all -I .')
+Ice.loadSlice('transmission.ice --all -I .')
+import transmission
 import services
 import drobots
 import sys, time, random, math
 from State import *
 
-class RobotControllerAttackerI(services.RobotControllerAttacker):
+class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.Information):
 
 	def __init__(self, robot, container, robot_id, current=None):
 		self.robot = robot
@@ -35,10 +37,21 @@ class RobotControllerAttackerI(services.RobotControllerAttacker):
 	def friendPosition(self, point, identifier, current=None):
 		self.friends_position[identifier]= point
 
+	def enemyPosition(self, point, container=None):
+		print("RobotControllerAttacker"+str(self.robotId)+" has found an enemy")
+		x = point.x
+		y = point.y
+		xEnemy = x - self.robot.location().x
+		yEnemy = y - self.robot.location().y
+		enemyAngle = int(math.degrees(math.atan2(xEnemy, yEnemy)) % 360.0)
+		distance = math.hypot(xEnemy, yEnemy)
+		self.robot.cannon(enemyAngle, distance)
+
 	def turn(self, current=None):
 		try:
 			self.handlers[self.state]()
 		except drobots.NoEnoughEnergy:
+			print "No enough energy"
 			pass
 
 	def play(self, current=None):
@@ -76,7 +89,7 @@ class RobotControllerAttackerI(services.RobotControllerAttacker):
 		self.state = State.PLAYING
 
 	def shoot(self, current=None): 
-		MAX_SHOOTS = 20
+		MAX_SHOOTS = 15
 		if self.shoots_counter <= MAX_SHOOTS:
 			angle = self.shoot_angle + random.randint(0, 360)
 			distance = (self.shoots_counter + 6) * 20

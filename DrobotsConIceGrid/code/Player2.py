@@ -71,7 +71,7 @@ class PlayerI(drobots.Player):
         if self.dc_counter == 0:
             print ('Making a controller detector...')
             name = 'dc' + str(self.dc_counter)
-            dc_servant = DetectorControllerI()
+            dc_servant = DetectorControllerI(self.container)
      
             dc_proxy = self.adapter.add(dc_servant, self.broker.stringToIdentity(name))
             print dc_proxy

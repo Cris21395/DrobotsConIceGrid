@@ -69,12 +69,11 @@ class PlayerI(drobots.Player):
             print "******** CREATING DETECTOR ********"
             self.container.setType("ContainerDetector")
 
-
             print ('Making a detector controller at the factory ' + str(self.factory))
 
             factory_proxy = self.broker.stringToProxy("detector")
             factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
-            dc = factory.makeDetector()
+            dc = factory.makeDetector(self.container)
             print("{0}: link: {1} -> {2}".format(self.factory, factory_proxy, dc))
         self.detector += 1
         sys.stdout.flush()

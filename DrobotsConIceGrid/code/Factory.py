@@ -4,6 +4,8 @@
 import Ice
 import os
 Ice.loadSlice('services.ice --all -I .')
+Ice.loadSlice('transmission.ice --all -I .')
+import transmission
 import services
 import sys
 from RobotControllerAttacker import *
@@ -34,8 +36,8 @@ class FactoryI(services.ControllerFactory):
 		rc.setContainer(container_robots)    
 		return rc
 
-	def makeDetector(self, current=None):
-		dc_servant = DetectorControllerI()
+	def makeDetector(self, container_robots, current=None):
+		dc_servant = DetectorControllerI(container_robots)
 		dc_proxy = current.adapter.addWithUUID(dc_servant)
 		print dc_proxy
 		dc_poxy = current.adapter.createDirectProxy(dc_proxy.ice_getIdentity())
