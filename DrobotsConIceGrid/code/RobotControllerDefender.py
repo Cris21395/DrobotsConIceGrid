@@ -31,12 +31,14 @@ class RobotControllerDefenderI(services.RobotControllerDefender):
 
 	def setContainer(self, container, current=None):
 		self.container = container
+		return None
 
 	def turn(self, current=None):
 		try:
 			self.handlers[self.state]()
 		except drobots.NoEnoughEnergy:
 			pass
+		return None
 
 	def play(self, current=None):
 		my_location = self.robot.location()    
@@ -45,10 +47,11 @@ class RobotControllerDefenderI(services.RobotControllerDefender):
 			attacker_prx = self.container.getElementAt(i)
 			attacker = services.RobotControllerAttackerPrx.uncheckedCast(attacker_prx)
 			attacker.friendPosition(my_location, i)
-
+		return None
 
 	def friendPosition(self, point, identifier, current=None):
 		self.friends_position[identifier] = point
+		return None
 
 	def move(self, current=None):
 		location = self.robot.location()
@@ -57,6 +60,7 @@ class RobotControllerDefenderI(services.RobotControllerDefender):
 		angle = int(round(self.calculate_angle(delta_x, delta_y), 0))
 		self.robot.drive(angle, 100)
 		self.state = State.PLAYING
+		return None
 
 
 	def scan(self, current=None): 
@@ -73,14 +77,12 @@ class RobotControllerDefenderI(services.RobotControllerDefender):
 			self.robot.drive(0, 0)
 			self.shoot_angle = current_angle
 			self.state = State.SHOOTING
+		return None
  
 	def robotDestroyed(self, current=None):
-		if self.robot.damage == 100:
-			self.container.unlink(robotId)
+		if self.robot.damage() == 100:
 			print("Destoryed defender " + str(self.robotId))
-			return True
-		else:
-			return False
+		return None
 
 	def calculate_angle(self, x, y, current=None):
 		if x==0:

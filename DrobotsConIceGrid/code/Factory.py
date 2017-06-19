@@ -24,7 +24,6 @@ class FactoryI(services.ControllerFactory):
 			rc_proxy = current.adapter.createDirectProxy(rc_proxy.ice_getIdentity())
 			container_robots.link(key, rc_proxy)
 			rc = services.RobotControllerAttackerPrx.checkedCast(rc_proxy)
-
 		else:
 			rc_servant = RobotControllerDefenderI(robot, container_robots, key)
 			rc_proxy = current.adapter.addWithUUID(rc_servant)

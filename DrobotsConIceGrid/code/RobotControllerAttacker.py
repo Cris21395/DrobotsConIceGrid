@@ -17,7 +17,6 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		self.container = container
 		self.robotId = robot_id
 		self.state = State.MOVING
-		self.previous_damage = 0
 		self.x = random.randint(0, 360)
 		self.y = random.randint(0, 360)
 		self.shoot_angle = 0
@@ -29,13 +28,14 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 			State.PLAYING : self.play
 		}
 		self.velocidad = 0
-		self.energia = 0
 		
 	def setContainer(self, container, current=None):
 		self.container = container
+		return None
 	
 	def friendPosition(self, point, identifier, current=None):
 		self.friends_position[identifier]= point
+		return None
 
 	def enemyPosition(self, point, container=None):
 		print("RobotControllerAttacker"+str(self.robotId)+" has found an enemy")
@@ -44,16 +44,21 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		xEnemy = x - self.robot.location().x
 		yEnemy = y - self.robot.location().y
 		enemyAngle = int(math.degrees(math.atan2(xEnemy, yEnemy)) % 360.0)
-		distance = math.hypot(xEnemy, yEnemy)
-		if self.robot.energy() > 50:
-			self.robot.drive(random.int(0, enemyAngle), 100)
-			self.robot.cannon(random.int(0, enemyAngle), distance)
+		distance = int(math.hypot(xEnemy, yEnemy))
+		angle = random.randint(0, enemyAngle)
+		try:
+			self.robot.drive(angle, 100)
+			self.robot.cannon(angle, distance)
+		except drobots.NoEnoughEnergy:
+			pass
+		return None
 
 	def turn(self, current=None):
 		try:
 			self.handlers[self.state]()
 		except drobots.NoEnoughEnergy:
 			pass
+		return None
 
 	def play(self, current=None):
 		my_location = self.robot.location()    
@@ -63,6 +68,7 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 			defender = services.RobotControllerDefenderPrx.uncheckedCast(defender_prx)
 			defender.friendPosition(my_location, i)
 			self.state = State.SHOOTING
+		return None
 
 	def move(self, current=None):
 		location = self.robot.location()
@@ -88,6 +94,7 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 
 		self.robot.drive(angle, 100)
 		self.state = State.PLAYING
+		return None
 
 	def shoot(self, current=None): 
 		MAX_SHOOTS = 10
@@ -99,15 +106,13 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 			self.state = State.SHOOTING
 		else:
 			self.shoots_counter = 0
-			self.state = State.MOVING 
+			self.state = State.MOVING
+		return None
 
 	def robotDestroyed(self, current=None):
-		if self.robot.damage == 100:
-			self.container.unlink(robotId)
+		if self.robot.damage() == 100:
 			print("Destoryed atacant " + str(self.robotId))
-			return True
-		else:
-			return False
+		return None
 
 	def calculate_angle(self, x, y, current=None):
 		if x==0:

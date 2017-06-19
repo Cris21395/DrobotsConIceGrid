@@ -18,6 +18,7 @@ class DetectorControllerI(drobots.DetectorController, transmission.Information):
 		for value in range(0,4):
 			robot = self.container.getElementAt(value)
 			if(robot.ice_isA("::services::RobotControllerAttacker")):
-				print "Hello"
 				attacker = transmission.InformationPrx.uncheckedCast(robot)
+				print "Sending position to attacker"
 				attacker.enemyPosition(enemy_position)
+		return None
