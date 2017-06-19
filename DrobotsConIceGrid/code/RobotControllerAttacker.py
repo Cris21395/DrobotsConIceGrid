@@ -51,7 +51,6 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		try:
 			self.handlers[self.state]()
 		except drobots.NoEnoughEnergy:
-			print "No enough energy"
 			pass
 
 	def play(self, current=None):
@@ -89,7 +88,7 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		self.state = State.PLAYING
 
 	def shoot(self, current=None): 
-		MAX_SHOOTS = 15
+		MAX_SHOOTS = 10
 		if self.shoots_counter <= MAX_SHOOTS:
 			angle = self.shoot_angle + random.randint(0, 360)
 			distance = (self.shoots_counter + 6) * 20
