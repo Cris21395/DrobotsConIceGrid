@@ -63,7 +63,6 @@ class PlayerI(drobots.Player):
         self.adapter = adapter
         self.container = container    
         self.rc_counter = 0
-        self.rc_counter = 0
         self.dc_counter = 0
 
     def makeDetectorController(self, current=None):

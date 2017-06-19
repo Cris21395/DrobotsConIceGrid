@@ -56,8 +56,6 @@ class ServerFactoryApp(Ice.Application):
 		container_proxy = broker.stringToProxy('container')
 		container = services.ContainerPrx.checkedCast(container_proxy)
 
-		container.linkFactories("Factory"+"--"+str(os.getpid()), proxy)              
-
 		print(proxy)
 
 		adapter.activate()
