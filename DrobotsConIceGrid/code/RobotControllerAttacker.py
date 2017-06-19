@@ -45,7 +45,9 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		yEnemy = y - self.robot.location().y
 		enemyAngle = int(math.degrees(math.atan2(xEnemy, yEnemy)) % 360.0)
 		distance = math.hypot(xEnemy, yEnemy)
-		self.robot.cannon(enemyAngle, distance)
+		if self.robot.energy() > 50:
+			self.robot.drive(random.int(0, enemyAngle), 100)
+			self.robot.cannon(random.int(0, enemyAngle), distance)
 
 	def turn(self, current=None):
 		try:
