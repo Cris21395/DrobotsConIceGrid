@@ -1,5 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# **********************************************************************
+#
+# Authors: Cristian Gómez Portes, Pedro Gómez Martín
+#
+# **********************************************************************
 
 import Ice
 Ice.loadSlice('services.ice --all -I .')
