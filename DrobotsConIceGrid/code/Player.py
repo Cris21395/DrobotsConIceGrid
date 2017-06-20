@@ -64,17 +64,16 @@ class PlayerI(drobots.Player):
         self.detector = 0
 
     def makeDetectorController(self, current=None):
-        dc = None
         if self.detector == 0:
             print "******** CREATING DETECTOR ********"
-            self.container.setType("ContainerDetector")
+        self.container.setType("ContainerDetector")
 
-            print ('Making a detector controller at the factory ' + str(self.factory))
+        print ('Making a detector controller at the factory ' + str(self.factory))
 
-            factory_proxy = self.broker.stringToProxy("detector")
-            factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
-            dc = factory.makeDetector(self.container)
-            print("{0}: link: {1} -> {2}".format(self.factory, factory_proxy, dc))
+        factory_proxy = self.broker.stringToProxy("detector")
+        factory = services.ControllerFactoryPrx.checkedCast(factory_proxy)
+        dc = factory.makeDetector(self.container)
+        print("{0}: link: {1} -> {2}".format(self.factory, factory_proxy, dc))
         self.detector += 1
         sys.stdout.flush()
         return dc

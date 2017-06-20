@@ -66,18 +66,16 @@ class PlayerI(drobots.Player):
         self.dc_counter = 0
 
     def makeDetectorController(self, current=None):
-        dc = None
-        if self.dc_counter == 0:
-            print ('Making a controller detector...')
-            name = 'dc' + str(self.dc_counter)
-            dc_servant = DetectorControllerI(self.container)
-     
-            dc_proxy = self.adapter.add(dc_servant, self.broker.stringToIdentity(name))
-            print dc_proxy
+        print ('Making a controller detector...')
+        name = 'dc' + str(self.dc_counter)
+        dc_servant = DetectorControllerI(self.container)
+ 
+        dc_proxy = self.adapter.add(dc_servant, self.broker.stringToIdentity(name))
+        print dc_proxy
 
-            dc_proxy = current.adapter.createDirectProxy(dc_proxy.ice_getIdentity())
-            dc = drobots.DetectorControllerPrx.checkedCast(dc_proxy)
-            self.dc_counter = self.dc_counter + 1
+        dc_proxy = current.adapter.createDirectProxy(dc_proxy.ice_getIdentity())
+        dc = drobots.DetectorControllerPrx.checkedCast(dc_proxy)
+        self.dc_counter = self.dc_counter + 1
         sys.stdout.flush()
         return dc
 
