@@ -96,7 +96,7 @@
          <server id="Player" activation="manual" exe="./Player.py" pwd="${application.distrib}">
             <properties>
                <property name="Player.Locator" value="IceGrid/Locator -t:tcp -h atclab.esi.uclm.es -p 4061"/>
-               <property name="Player" value="drobots7"/>
+               <property name="Player" value="factory"/>
                <property name="Ice.StdOut" value="${application.distrib}/server-out.txt"/>
                <property name="Ice.StdErr" value="${application.distrib}/server-err.txt"/>
             </properties>
@@ -105,7 +105,7 @@
          <server id="Player2" activation="manual" exe="./Player2.py" pwd="${application.distrib}">
             <properties>
                <property name="Player.Locator" value="IceGrid/Locator -t:tcp -h atclab.esi.uclm.es -p 4061"/>
-               <property name="Player" value="drobots7"/>
+               <property name="Player" value="factory"/>
                <property name="Ice.StdOut" value="${application.distrib}/server-out.txt"/>
                <property name="Ice.StdErr" value="${application.distrib}/server-err.txt"/>
             </properties>

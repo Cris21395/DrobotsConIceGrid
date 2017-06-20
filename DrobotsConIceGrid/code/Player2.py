@@ -30,9 +30,9 @@ class PlayerApp(Ice.Application):
 
         proxy_game = broker.propertyToProxy('Player') 
         print ('Proxy game: ' +str(proxy_game))
-        game = drobots.GamePrx.checkedCast(proxy_game)
-        #gameFact = drobots.GameFactoryPrx.checkedCast(proxy_game)
-        #game = gameFact.makeGame("GameRobots", 2)
+        #game = drobots.GamePrx.checkedCast(proxy_game)
+        gameFact = drobots.GameFactoryPrx.checkedCast(proxy_game)
+        game = gameFact.makeGame("GameRobots", 2)
 
         try:
             print ('Trying to do login...')
