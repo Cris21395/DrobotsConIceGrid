@@ -47,7 +47,7 @@ stop-grid:
 	    echo -- $$node finished; \
 	done
 
-	@sudo killall icegridnode
+	@killall icegridnode
 	@echo -- ok
 
 show-nodes:
