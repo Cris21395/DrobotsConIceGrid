@@ -33,6 +33,8 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 			State.PLAYING : self.play
 		}
 		self.velocidad = 0
+		self.distance = 0
+		self.flag = 0 #flag that allows to obtain enemy's position
 		
 	def setContainer(self, container, current=None):
 		self.container = container
@@ -46,16 +48,19 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		print("RobotControllerAttacker"+str(self.robotId)+" has found an enemy")
 		x = point.x
 		y = point.y
-		xEnemy = x - self.robot.location().x
-		yEnemy = y - self.robot.location().y
+
+		location = self.robot.location()
+
+		xrobot = location.x
+		yrobot = location.y
+		xEnemy = x - xrobot
+		yEnemy = y - yrobot
 		enemyAngle = int(math.degrees(math.atan2(xEnemy, yEnemy)) % 360.0)
 		distance = int(math.hypot(xEnemy, yEnemy))
 		angle = random.randint(0, enemyAngle)
-		try:
-			self.robot.drive(angle, 100)
-			self.robot.cannon(angle, distance)
-		except drobots.NoEnoughEnergy:
-			pass
+		self.shoot_angle = angle
+		self.distance = distance
+		self.flag = 1
 		return None
 
 	def turn(self, current=None):
@@ -104,11 +109,16 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 	def shoot(self, current=None): 
 		MAX_SHOOTS = 10
 		if self.shoots_counter <= MAX_SHOOTS:
-			angle = self.shoot_angle + random.randint(0, 360)
-			distance = (self.shoots_counter + 6) * 20
-			self.robot.cannon(angle, distance) 
-			self.shoots_counter += 1
-			self.state = State.SHOOTING
+			if self.flag == 0:
+				angle = self.shoot_angle + random.randint(0, 360)
+				distance = (self.shoots_counter + 6) * 20
+				self.robot.cannon(angle, distance) 
+				self.shoots_counter += 1
+				self.state = State.SHOOTING
+			else:
+				self.robot.cannon(self.shoot_angle, self.distance) 
+				self.shoots_counter += 1
+				self.state = State.SHOOTING
 		else:
 			self.shoots_counter = 0
 			self.state = State.MOVING
