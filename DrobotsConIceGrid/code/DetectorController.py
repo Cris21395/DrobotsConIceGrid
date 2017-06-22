@@ -20,8 +20,7 @@ class DetectorControllerI(drobots.DetectorController, transmission.Information):
 		self.container = container
 
 	def alert(self, enemy_position, enemies, current=None):
-		for value in range(0,4):
-			robot = self.container.getElementAt(value)
+		for robot in self.container.list().values():
 			if(robot.ice_isA("::services::RobotControllerAttacker")):
 				attacker = transmission.InformationPrx.uncheckedCast(robot)
 				print "Sending position to attacker"
