@@ -9,14 +9,13 @@
 
 module services {
 
-    dictionary<string, Object*> ObjectPrxDict;
+    dictionary<int, Object*> ObjectPrxDict;
     
     interface Container {
         void link(int key, Object* proxy);
         void linkFactories(string key, Object* proxy);
         void unlink(int key);
         ObjectPrxDict list();
-        ObjectPrxDict listFactories();
         Object* getElementAt(int key);
         void setType(string type);
         string getType();
