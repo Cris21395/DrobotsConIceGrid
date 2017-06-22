@@ -71,12 +71,14 @@ class RobotControllerAttackerI(services.RobotControllerAttacker, transmission.In
 		return None
 
 	def play(self, current=None):
-		my_location = self.robot.location()    
+		my_location = self.robot.location()
+		counter = 0
 
-		for i in range(0,3):
-			defender_prx = self.container.getElementAt(i)
-			defender = services.RobotControllerDefenderPrx.uncheckedCast(defender_prx)
-			defender.friendPosition(my_location, i)
+		for defender_prx in self.container.list().values():
+			if(defender_prx.ice_isA("::services::RobotControllerDefender")):
+				defender = services.RobotControllerDefenderPrx.uncheckedCast(defender_prx)
+				defender.friendPosition(my_location, counter)
+			counter += 1
 			self.state = State.SHOOTING
 		return None
 

@@ -46,12 +46,14 @@ class RobotControllerDefenderI(services.RobotControllerDefender):
 		return None
 
 	def play(self, current=None):
-		my_location = self.robot.location()    
+		my_location = self.robot.location()
+		counter = 0
 
-		for i in range(2,4):
-			attacker_prx = self.container.getElementAt(i)
-			attacker = services.RobotControllerAttackerPrx.uncheckedCast(attacker_prx)
-			attacker.friendPosition(my_location, i)
+		for attacker_prx in self.container.list().values():
+			if(attacker_prx.ice_isA("::services::RobotControllerAttacker")):
+				attacker = services.RobotControllerAttackerPrx.uncheckedCast(attacker_prx)
+				attacker.friendPosition(my_location, counter)
+			counter += 1
 		return None
 
 	def friendPosition(self, point, identifier, current=None):
