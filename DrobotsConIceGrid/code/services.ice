@@ -13,7 +13,6 @@ module services {
     
     interface Container {
         void link(int key, Object* proxy);
-        void linkFactories(string key, Object* proxy);
         void unlink(int key);
         ObjectPrxDict list();
         Object* getElementAt(int key);
