@@ -29,9 +29,7 @@ python superior a la 2.7. Además, se deberá cambiar la ruta donde se accede a 
 abrimos el archivo xml y seleccionamo "node1". Aquí encontraremos el siguiente nombre: "DrobotsApp.IcePatch2". Seleccionamos esta 
 opción y cambiamos el directorio que aparece por el nuestro (donde se ubica nuestra aplicación Drobots al clonar el repositorio). 
 Una vez hayamos seguido las indicaciones anteriores, necesitaremos conectarnos con la vpn de la UCLM. En la siguiente dirección 
-se especifican los pasos para la configuración de la vpn: https://www.google.es/url?sa=t&
-rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjhosbkmcLUAhXBbBoKHe76AfQQFggyMAA&url=http%3A%2F
-%2Fbiblioteca.uclm.es%2FArchivos%2FVPN_UCLM.pdf&usg=AFQjCNGMl5atqqyuG-DMPV8U4--RtKtFgw.
+se especifican los pasos para la configuración de la vpn: https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjBy8bh1-fUAhVOEVAKHQwlAIgQFggyMAA&url=http%3A%2F%2Fbiblioteca.uclm.es%2FArchivos%2FVPN_UCLM.pdf&usg=AFQjCNGMl5atqqyuG-DMPV8U4--RtKtFgw.
 Después de haber realizado estos pasos, ejecutaremos el siguiente comando:
 ```
 make all
